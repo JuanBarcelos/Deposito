@@ -6,8 +6,8 @@ function Footer(){
     <footer className="main-footer">
         App desenvolvido para lhe trazer mais conforto na hora de beber
         <div className="footer-icons">
-            <a href="" target="_new"> <InstagramImage/> </a>
-            <a href="" target="_new"> <InstagramImage/> </a>
+            <a href="teste" target="_new"> <InstagramImage/> </a>
+            <a href="teste" target="_new"> <InstagramImage/> </a>
         </div>
     </footer>
   )
