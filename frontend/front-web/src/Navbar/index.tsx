@@ -7,7 +7,7 @@ function Navbar(){
   return (
     <nav className="main-navbar">
         <Logo />
-        <Link to="/" className="logo-text"> Deposito Dois Irmãos</Link>
+        <Link to="/" className="logo-text"> Depósito Dois Irmãos</Link>
     </nav>
   )
 
