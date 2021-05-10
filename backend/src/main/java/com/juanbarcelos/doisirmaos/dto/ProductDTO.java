@@ -13,15 +13,17 @@ public class ProductDTO implements Serializable {
 	private String name;
 	private Double price;
 	private String imageUri;
+	private int quantidade;
 	
 	public ProductDTO() {
 	}
 
-	public ProductDTO(Long id, String name, Double price, String imageUri) {
+	public ProductDTO(Long id, String name, Double price, String imageUri, int quantidade) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.imageUri = imageUri;
+		this.quantidade = quantidade;
 	}
 	
 	public ProductDTO(Product entity) {
@@ -29,6 +31,7 @@ public class ProductDTO implements Serializable {
 		name = entity.getName();
 		price = entity.getPrice();
 	    imageUri = entity.getImageUri();
+	    quantidade = entity.getQuantidade();
 	}
 
 	public Long getId() {
@@ -62,6 +65,13 @@ public class ProductDTO implements Serializable {
 	public void setImageUri(String imageUri) {
 		this.imageUri = imageUri;
 	}
-	
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
 	
 }

@@ -21,17 +21,19 @@ public class Product implements Serializable {
 	private String name;
 	private Double price;
 	private String imageUri;
+	private int quantidade;
 	
 	public Product() {
 		
 	}
 
-	public Product(Long id, String name, Double price, String imageUri) {
+	public Product(Long id, String name, Double price, String imageUri, int quantidade) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.imageUri = imageUri;
+		this.quantidade = quantidade;
 	}
 
 	public Long getId() {
@@ -64,6 +66,14 @@ public class Product implements Serializable {
 
 	public void setImageUri(String imageUri) {
 		this.imageUri = imageUri;
+	}
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
 	}
 
 	@Override
