@@ -116,6 +116,10 @@
 }
 
 .order-card-description {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   border-top: 1px solid #E6E6E6;
   margin-top: 15px;
   padding-top: 15px;
@@ -261,6 +265,27 @@
   transform: scale(1.01);
 }
 
+.card-btn-order {
+  background-color: var(--primary-color);
+  border-radius: 50px;
+  height: 35px;
+  width: 35px;
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 24px;
+  letter-spacing: -0.015em;
+  color: #FFF;
+  text-decoration: none;
+}
+
+.card-btn-order:hover {
+  background-color: var(--primary-hover-color);
+  transform: scale(1.01);
+}
+
 @media only screen and (max-width: 768px) {
   .orders-steps-content {
     display: flex;
@@ -291,4 +316,6 @@
     margin-top: 15px;
     width: 100%;
   }
+
+ 
 }

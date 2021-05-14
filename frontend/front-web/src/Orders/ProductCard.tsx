@@ -1,4 +1,9 @@
+import { formatPrice } from './helpers';
 import { Product } from './Types';
+import {ReactComponent as ButtonMenos} from './menos.svg';
+import {ReactComponent as Mais} from './mais.svg';
+import { useState } from 'react';
+
 
 type Props = {
   product: Product;
@@ -6,17 +11,21 @@ type Props = {
   isSelected: boolean;
 }
 
-function formatPrice(price:number){
-  const formatter = new Intl.NumberFormat('pt-BR',{
-    style: 'currency',
-    currency: 'BRL',
-    minimumFractionDigits: 2
-  });
-
-  return formatter.format(price);
-}
-
 function ProductCard({product, onSelectProduct, isSelected}:Props){
+ 
+  const [quantidade,setQuantidade]=useState(0);
+
+  const addQuantidade = () =>{
+   setQuantidade(quantidade + 1)
+   product.quantidade = quantidade+1
+  }
+      
+  
+  const removeQuantidade = () =>{
+    setQuantidade(quantidade - 1)
+    product.quantidade = quantidade+1
+  }
+ 
   return (
     <div className={`order-card-container ${isSelected ? 'selected' : ''} `} 
     onClick={()=>onSelectProduct(product)}>
@@ -27,10 +36,9 @@ function ProductCard({product, onSelectProduct, isSelected}:Props){
 
         <div className="order-card-description">
            <h3>Quantidade</h3>
-            <p>
-              <a href=""> + </a>
-              <a href=""> - </a> 
-            </p> 
+              <a onClick={addQuantidade} className="card-btn-order">+</a>
+              <h3>{quantidade}</h3>
+              <a onClick={removeQuantidade} className="card-btn-order">-</a>    
         </div>
     </div>
   )
