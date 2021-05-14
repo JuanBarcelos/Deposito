@@ -1,7 +1,5 @@
 import { formatPrice } from './helpers';
 import { Product } from './Types';
-import {ReactComponent as ButtonMenos} from './menos.svg';
-import {ReactComponent as Mais} from './mais.svg';
 import { useState } from 'react';
 
 
@@ -22,6 +20,9 @@ function ProductCard({product, onSelectProduct, isSelected}:Props){
       
   
   const removeQuantidade = () =>{
+    if(quantidade > 0){
+      alert("Valor incorreto...")
+    }
     setQuantidade(quantidade - 1)
     product.quantidade = quantidade+1
   }
@@ -37,7 +38,7 @@ function ProductCard({product, onSelectProduct, isSelected}:Props){
         <div className="order-card-description">
            <h3>Quantidade</h3>
               <a onClick={addQuantidade} className="card-btn-order">+</a>
-              <h3>{quantidade}</h3>
+              <h3>{product.quantidade}</h3>
               <a onClick={removeQuantidade} className="card-btn-order">-</a>    
         </div>
     </div>
