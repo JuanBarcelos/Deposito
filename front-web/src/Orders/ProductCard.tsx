@@ -37,9 +37,9 @@ function ProductCard({product, onSelectProduct, isSelected}:Props){
 
         <div className="order-card-description">
            <h3>Quantidade</h3>
-              <a onClick={addQuantidade} className="card-btn-order">+</a>
-              <h3>{product.quantidade}</h3>
-              <a onClick={removeQuantidade} className="card-btn-order">-</a>    
+              <a href="/" onClick={addQuantidade} className="card-btn-order">+</a>
+                <h3>{quantidade}</h3>
+              <a href="/" onClick={removeQuantidade} className="card-btn-order">-</a>    
         </div>
     </div>
   )
