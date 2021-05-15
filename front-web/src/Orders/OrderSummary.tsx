@@ -15,8 +15,12 @@ function OrderSummary({amount, totalPrice, onSubmit}:Props){
               <strong className="amount-selected">{amount}</strong>
               PEDIDOS SELECIONADOS
             </span>
+            <span className="amount-selected-container">
+              <strong className="amount-selected">R$: 5,00</strong>
+              ESTE E O NOSSO VALOR DA ENTREGA
+            </span>
             <span className="order-summary-total">
-              <strong className="amount-selected">R$ {formatPrice(totalPrice)}</strong>
+              <strong className="amount-selected">{formatPrice(totalPrice)}</strong>
               VALOR TOTAL
             </span>
             </div>

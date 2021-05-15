@@ -20,11 +20,11 @@ function ProductCard({product, onSelectProduct, isSelected}:Props){
       
   
   const removeQuantidade = () =>{
-    if(quantidade > 0){
+    if(quantidade <= 0){
       alert("Valor incorreto...")
     }
-    setQuantidade(quantidade - 1)
-    product.quantidade = quantidade+1
+      setQuantidade(quantidade - 1)
+      product.quantidade = quantidade-1
   }
  
   return (
@@ -37,9 +37,9 @@ function ProductCard({product, onSelectProduct, isSelected}:Props){
 
         <div className="order-card-description">
            <h3>Quantidade</h3>
-              <a href="/" onClick={addQuantidade} className="card-btn-order">+</a>
-                <h3>{quantidade}</h3>
-              <a href="/" onClick={removeQuantidade} className="card-btn-order">-</a>    
+              <button onClick={addQuantidade} className="card-btn-order">+</button>
+                <h3>{product.quantidade}</h3>
+              <button onClick={removeQuantidade} className="card-btn-order">-</button>    
         </div>
     </div>
   )
