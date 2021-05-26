@@ -9,22 +9,7 @@ type Props = {
   isSelected: boolean;
 }
 
-function ProductCard({product, onSelectProduct, isSelected}:Props){
- 
-  const [quantidade,setQuantidade]=useState(0);
-
-  const addQuantidade = () =>{
-   setQuantidade(product.quantidade + 1)
-  }
-      
-  
-  const removeQuantidade = () =>{
-    if(quantidade <= 0){
-      alert("Valor incorreto...")
-    }
-      setQuantidade(quantidade - 1)
-  }
- 
+function ProductCard({product, onSelectProduct, isSelected}:Props){ 
   return (
     <div className={`order-card-container ${isSelected ? 'selected' : ''} `} 
     onClick={()=>onSelectProduct(product)}>
@@ -34,10 +19,7 @@ function ProductCard({product, onSelectProduct, isSelected}:Props){
         <h3 className="order-card-price"> {formatPrice(product.price)}</h3>
 
         <div className="order-card-description">
-           <h3>Quantidade</h3>
-              <button onClick={addQuantidade} className="card-btn-order">+</button>
-                <h3>{product.quantidade}</h3>
-              <button onClick={removeQuantidade} className="card-btn-order">-</button>    
+               
         </div>
     </div>
   )
