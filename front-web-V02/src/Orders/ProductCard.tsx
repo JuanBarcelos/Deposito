@@ -1,6 +1,6 @@
 import { formatPrice } from './helpers';
 import { Product } from './Types';
-import { useState } from 'react';
+
 
 
 type Props = {
@@ -17,10 +17,6 @@ function ProductCard({product, onSelectProduct, isSelected}:Props){
         <h3 className="order-card-title"> {product.name}</h3>
         <img src={product.imageUri} className="order-card-image" alt={product.name} />
         <h3 className="order-card-price"> {formatPrice(product.price)}</h3>
-
-        <div className="order-card-description">
-               
-        </div>
     </div>
   )
 }

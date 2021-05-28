@@ -1,25 +1,20 @@
 import { formatPrice } from "../Orders/helpers";
 import { Product } from "../Orders/Types";
-import {ReactComponent as Logo} from './logo.svg';
-{
-  /*
-    type Props = {
+
+
+  type Props = {
   product: Product;
-  onSelectProduct: (product: Product) => void;
-  isSelected: boolean;
-}
-  */
 }
 
 
-function CartCard(){ 
+function CartCard({product}:Props){ 
   return (
-    <div className="order-card-container">
-      <h3 className="order-card-title">Produto</h3>
-      <img className="order-card-image" src="./ousadia.png" alt="foto"/>
-      <h3 className="order-card-price">Preço</h3>
-      <div className="order-card-description">
-
+    <div className="cart-card-body">
+      <div className="cart-card-container">
+        <img className="cart-card-image" src={product.imageUri} alt={product.name}/>
+        <h3 className="cart-card-title">{product.name}</h3>
+        <h3 className="cart-card-price">{formatPrice(product.price)}</h3>
+        <h3 className="cart-card-price">Preço: R$ 50,00</h3>   
       </div>
     </div>
   )
@@ -27,23 +22,3 @@ function CartCard(){
 
 
 export default CartCard;
-
-{
-  /*
-  {product, onSelectProduct, isSelected}:Props
-<div className={`order-card-container ${isSelected ? 'selected' : ''} `} 
-onClick={()=>onSelectProduct(product)}>
-
-<h3 className="order-card-title"> {product.name}</h3>
-    <img src={product.imageUri} className="order-card-image" alt={product.name} />
-    <h3 className="order-card-price"> {formatPrice(product.price)}</h3>
-
-    <div className="order-card-description">
-           
-    </div>
-
-
-   
-</div>
-*/
-}

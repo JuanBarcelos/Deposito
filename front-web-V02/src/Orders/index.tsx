@@ -17,7 +17,7 @@ function Orders(){
   const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
   const [orderLocation, setOrderLocation] = useState<OrderLocationData>()
   const totalPrice = selectedProducts.reduce((sum, item)=>{
-      return sum + 5 + item.price;
+      return sum + item.price;
   },0);
 
 useEffect(() =>{
@@ -36,20 +36,35 @@ const handleSelectProduct = (product: Product) => {
   }
 }
 
+
+const  itensSelect = (selectedProducts.map(({ id }) => ({ id })));
+
 const handleSubmit = () => {
-  const productsIds = selectedProducts.map(({ id }) => ({ id }));
-  const payload = {
+  selectedProducts.map(({ id }) => ({ id }));
+  console.log(selectedProducts);
+
+  {
+    /*
+      const payload = {
     ...orderLocation!,
     products: productsIds
   }
-
-  saveOrder(payload).then((response) => {
+    */
+  }
+  
+{
+  /*
+      saveOrder(payload).then((response) => {
     toast.error(`Pedido enviado com sucesso! Nº ${response.data.id}`);
     setSelectedProducts([]);
   })
     .catch(() => {
       toast.warning('Erro ao enviar pedido');
     })
+    console.log(payload);
+  */
+}
+    
 }
 
   return (
@@ -60,11 +75,12 @@ const handleSubmit = () => {
         onSelectProduct={handleSelectProduct}
         selectedProducts={selectedProducts}
       />
-     { /*
+
       <OrderLocation onChangeLocation={location => setOrderLocation(location)}/>
-     */}
+
       <OrderSummary amount={selectedProducts.length} totalPrice={totalPrice} 
       onSubmit={handleSubmit}/>
+    
     </div>
       <Footer/>
     </>

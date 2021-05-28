@@ -5,13 +5,14 @@ import Navbar from "./Navbar";
 import Orders from "./Orders";
 import Cart from "./Cart";
 
+
 function Routes(){
   return (
     <BrowserRouter>
         <Navbar/>
       <Switch>
-      <Route path="/cart">
-            <Cart/>
+      <Route path= "/cart">
+            <Cart />
         </Route>
         <Route path="/orders">
             <Orders/>

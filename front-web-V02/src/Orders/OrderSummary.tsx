@@ -1,5 +1,6 @@
 import { formatPrice } from "./helpers";
 import { Link } from 'react-router-dom';
+import { Product } from "./Types";
 
 type Props = {
   amount: number;
@@ -30,10 +31,11 @@ function OrderSummary({amount, totalPrice, onSubmit}:Props){
               */
             }
             </div>
-            <Link to="/cart" className="order-summary-make-order">VER CARRINHO</Link>
+            <Link to="/cart" onClick={() => onSubmit() }  className="order-summary-make-order">VER CARRINHO</Link>
       </div>
     </div>
   )
 }
 
 export default OrderSummary;
+
