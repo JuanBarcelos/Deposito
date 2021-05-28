@@ -5,10 +5,13 @@ import { Product } from "./Types";
 type Props = {
   amount: number;
   totalPrice: number;
-  onSubmit: () => void;
+  onSubmit: () => void
 }
 
 function OrderSummary({amount, totalPrice, onSubmit}:Props){
+ 
+
+
   return(
     <div className="order-summary-container">
       <div className="order-summary-content">
@@ -31,7 +34,8 @@ function OrderSummary({amount, totalPrice, onSubmit}:Props){
               */
             }
             </div>
-            <Link to="/cart" onClick={() => onSubmit() }  className="order-summary-make-order">VER CARRINHO</Link>
+            
+            <Link to="/cart" onClick={onSubmit}  className="order-summary-make-order">VER CARRINHO</Link>
       </div>
     </div>
   )

@@ -36,12 +36,14 @@ const handleSelectProduct = (product: Product) => {
   }
 }
 
-
-const  itensSelect = (selectedProducts.map(({ id }) => ({ id })));
-
 const handleSubmit = () => {
+  
+  
   selectedProducts.map(({ id }) => ({ id }));
-  console.log(selectedProducts);
+  const chave = "deposito";
+ 
+  localStorage.setItem(chave, JSON.stringify(selectedProducts) );
+  console.log(selectedProducts);   
 
   {
     /*

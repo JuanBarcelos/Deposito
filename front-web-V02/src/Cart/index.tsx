@@ -5,22 +5,19 @@ import { fetchProducts } from '../api';
 import CartList from './CartList';
 
 
-type Props = {
-
-  onSubmit: () => void;
-}
-
-
-
 
 function Cart(){ 
 
-  const [products, setProducts] = useState<Product[]>([]);
+  
+   const valueLocation = JSON.parse(localStorage.getItem("deposito") || "[]");
+   const [products, setProducts] = useState<Product[]>([]);
 
-  useEffect(() =>{
-    fetchProducts().then(Response => setProducts(Response.data))
-    .catch(error => console.log(error))
-  },[]);
+useEffect(() => {
+  if(valueLocation.length !== 0){
+    setProducts(valueLocation)
+  }
+}, []);
+
 
   return (
     <>
