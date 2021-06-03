@@ -42,31 +42,7 @@ const handleSubmit = () => {
   selectedProducts.map(({ id }) => ({ id }));
   const chave = "deposito";
  
-  localStorage.setItem(chave, JSON.stringify(selectedProducts) );
-  console.log(selectedProducts);   
-
-  {
-    /*
-      const payload = {
-    ...orderLocation!,
-    products: productsIds
-  }
-    */
-  }
-  
-{
-  /*
-      saveOrder(payload).then((response) => {
-    toast.error(`Pedido enviado com sucesso! Nº ${response.data.id}`);
-    setSelectedProducts([]);
-  })
-    .catch(() => {
-      toast.warning('Erro ao enviar pedido');
-    })
-    console.log(payload);
-  */
-}
-    
+  localStorage.setItem(chave, JSON.stringify(selectedProducts) );     
 }
 
   return (
