@@ -17,8 +17,10 @@ function Orders(){
   const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
   const [orderLocation, setOrderLocation] = useState<OrderLocationData>()
   const totalPrice = selectedProducts.reduce((sum, item)=>{
-      return sum+ 5 + item.price * item.quantidade;
+      return sum + item.price * item.quantidade;
   },0);
+
+const totalFrete = totalPrice + 5;
 
 useEffect(() =>{
   fetchProducts().then(Response => setProducts(Response.data))
@@ -37,10 +39,10 @@ const handleSelectProduct = (product: Product) => {
 }
 
 const handleSubmit = () => {
-  const productsIds = selectedProducts.map(({ id,quantidade }) => ({ id, quantidade }));
+  const productsIds = selectedProducts.map(({ id }) => ({ id }));
   const payload = {
     ...orderLocation!,
-    products: productsIds
+    products: productsIds 
   }
 
   saveOrder(payload).then((response) => {
@@ -61,7 +63,7 @@ const handleSubmit = () => {
         selectedProducts={selectedProducts}
       />
       <OrderLocation onChangeLocation={location => setOrderLocation(location)}/>
-      <OrderSummary amount={selectedProducts.length} totalPrice={totalPrice} 
+      <OrderSummary amount={selectedProducts.length} totalPrice={totalFrete} 
       onSubmit={handleSubmit}/>
     </div>
       <Footer/>

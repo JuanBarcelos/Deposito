@@ -14,15 +14,17 @@ function ProductCard({product, onSelectProduct, isSelected}:Props){
   const [quantidade,setQuantidade]=useState(0);
 
   const addQuantidade = () =>{
-   setQuantidade(product.quantidade + 1)
+   setQuantidade(product.quantidade++)
   }
       
   
   const removeQuantidade = () =>{
-    if(quantidade <= 0){
-      alert("Valor incorreto...")
-    }
-      setQuantidade(quantidade - 1)
+    if(product.quantidade <= 1){
+      alert("Você precisa pedir ao menos uma unidade de cada produto.")
+      setQuantidade(product.quantidade)
+    }else{
+      setQuantidade(product.quantidade--)
+    }    
   }
  
   return (
@@ -35,9 +37,9 @@ function ProductCard({product, onSelectProduct, isSelected}:Props){
 
         <div className="order-card-description">
            <h3>Quantidade</h3>
-              <button onClick={addQuantidade} className="card-btn-order">+</button>
+              <a onClick={addQuantidade} className="card-btn-order">+</a>
                 <h3>{product.quantidade}</h3>
-              <button onClick={removeQuantidade} className="card-btn-order">-</button>    
+              <a onClick={removeQuantidade} className="card-btn-order">-</a>    
         </div>
     </div>
   )
