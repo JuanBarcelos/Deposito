@@ -22,8 +22,6 @@ const removeItens = () => {
       const element = valueLocation[index];
       if(element.id != id){ 
         products.push(element)
-        console.log(products)
-        console.log(id)
       } 
     }
   }
@@ -50,7 +48,6 @@ const removeQuantidade = () => {
 
 
   return (
-    <div className="cart-card-body">
       <div className="cart-card-container">
         
         <img className="cart-card-image" src={product.imageUri} alt={product.name}/>
@@ -61,8 +58,7 @@ const removeQuantidade = () => {
         
         <div className="cart-card-quantidade">
           <a onClick={addQuantide} className="cart-quantidade"> + </a>
-            <h3 className="cart-card-quantidade">{product.quantidade}</h3>  
-            
+            <h3 className="cart-card-quantidade">{product.quantidade}</h3>
           <a onClick={removeQuantidade} className="cart-quantidade"> - </a>  
         </div>
 
@@ -73,7 +69,6 @@ const removeQuantidade = () => {
         </button>
       
       </div>
-    </div>
   )
 }
 

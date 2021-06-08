@@ -17,19 +17,17 @@ const limparCart = () => {
 }
 
   return (
-    <div className="cart-list-container">
-      <div className="cart-list-containerButton">
-          <Link to="/orders" onClick={limparCart} className="cart-list-button" > Limpar carriho</Link>
-      </div>
+    <div className="orders-list-container">
       <div className="cart-list-items">
+        <Link to="/orders" onClick={limparCart} className="cart-list-button" > Limpar carriho</Link>
           {
             products.map(product => (
               <CartCard key={product.id} product={product}/>
             )) 
             
           }
-      </div>
-
+         
+      </div>   
     </div>
   )
 }
