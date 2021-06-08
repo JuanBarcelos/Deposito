@@ -15,6 +15,7 @@ function ProductCard({product, onSelectProduct, isSelected}:Props){
 
   const addQuantidade = () =>{
    setQuantidade(product.quantidade++)
+   console.log(quantidade)
   }
       
   
@@ -37,9 +38,9 @@ function ProductCard({product, onSelectProduct, isSelected}:Props){
 
         <div className="order-card-description">
            <h3>Quantidade</h3>
-              <a onClick={addQuantidade} className="card-btn-order">+</a>
+              <button onClick={addQuantidade} className="card-btn-order">+</button>
                 <h3>{product.quantidade}</h3>
-              <a onClick={removeQuantidade} className="card-btn-order">-</a>    
+              <button onClick={removeQuantidade} className="card-btn-order">-</button>    
         </div>
     </div>
   )
