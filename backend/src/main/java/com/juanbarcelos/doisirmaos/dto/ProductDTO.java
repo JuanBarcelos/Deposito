@@ -2,19 +2,21 @@ package com.juanbarcelos.doisirmaos.dto;
 
 import java.io.Serializable;
 
+import com.juanbarcelos.doisirmaos.entities.Order;
 import com.juanbarcelos.doisirmaos.entities.Product;
 
 public class ProductDTO implements Serializable {
 
-
 	private static final long serialVersionUID = 1L;
-	
+
 	private Long id;
 	private String name;
 	private Double price;
 	private String imageUri;
 	private int quantidade;
-	
+
+	private Order order;
+
 	public ProductDTO() {
 	}
 
@@ -25,13 +27,13 @@ public class ProductDTO implements Serializable {
 		this.imageUri = imageUri;
 		this.quantidade = quantidade;
 	}
-	
+
 	public ProductDTO(Product entity) {
 		id = entity.getId();
 		name = entity.getName();
 		price = entity.getPrice();
-	    imageUri = entity.getImageUri();
-	    quantidade = entity.getQuantidade();
+		imageUri = entity.getImageUri();
+		quantidade = entity.getQuantidade();
 	}
 
 	public Long getId() {
@@ -70,8 +72,8 @@ public class ProductDTO implements Serializable {
 		return quantidade;
 	}
 
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
+	public void setQuantidade(int Quantidade) {
+		this.quantidade = Quantidade;
 	}
-	
+
 }

@@ -1,6 +1,7 @@
 import { formatPrice } from './helpers';
 import { Product } from './Types';
 import { useState } from 'react';
+import { alterarQuantidade } from '../api';
 
 
 type Props = {
@@ -11,11 +12,10 @@ type Props = {
 
 function ProductCard({product, onSelectProduct, isSelected}:Props){
  
-  const [quantidade,setQuantidade]=useState(0);
+  const [quantidade,setQuantidade]=useState(3);
 
   const addQuantidade = () =>{
    setQuantidade(product.quantidade++)
-   console.log(quantidade)
   }
       
   
@@ -28,6 +28,15 @@ function ProductCard({product, onSelectProduct, isSelected}:Props){
     }    
   }
  
+const alterQuantidade = () =>{
+    alterarQuantidade(product.id,product).then((response) => {
+      console.log(`Quantidade alterada com sucesso! Nº ${response.data.quantidade}`);
+    })
+      .catch(() => {
+        console.log('Erro ao enviar pedido'+quantidade);
+      })
+}
+
   return (
     <div className={`order-card-container ${isSelected ? 'selected' : ''} `} 
     onClick={()=>onSelectProduct(product)}>
@@ -38,7 +47,7 @@ function ProductCard({product, onSelectProduct, isSelected}:Props){
 
         <div className="order-card-description">
            <h3>Quantidade</h3>
-              <button onClick={addQuantidade} className="card-btn-order">+</button>
+              <button onClick={alterQuantidade} className="card-btn-order">+</button>
                 <h3>{product.quantidade}</h3>
               <button onClick={removeQuantidade} className="card-btn-order">-</button>    
         </div>
