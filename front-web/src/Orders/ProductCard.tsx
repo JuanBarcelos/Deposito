@@ -1,11 +1,7 @@
 import { formatPrice } from './helpers';
 import { Product } from './Types';
 import { useState } from 'react';
-<<<<<<< HEAD
-import { alterarQuantidade } from '../api';
-=======
 import { saveProduct } from '../api';
->>>>>>> d24506b8e8299cc4c423427552aa5c4f79ef681a
 
 
 type Props = {
@@ -16,18 +12,11 @@ type Props = {
 
 function ProductCard({product, onSelectProduct, isSelected}:Props){
  
-<<<<<<< HEAD
-  const [quantidade,setQuantidade]=useState(3);
-
-  const addQuantidade = () =>{
-   setQuantidade(product.quantidade++)
-=======
   const [quantidade,setQuantidade]=useState(product.quantidade);
 
   const addQuantidade = () =>{
    setQuantidade(product.quantidade++)
    saveProducts()
->>>>>>> d24506b8e8299cc4c423427552aa5c4f79ef681a
   }
       
   
@@ -41,18 +30,7 @@ function ProductCard({product, onSelectProduct, isSelected}:Props){
       saveProducts()
     }    
   }
- 
-<<<<<<< HEAD
-const alterQuantidade = () =>{
-    alterarQuantidade(product.id,product).then((response) => {
-      console.log(`Quantidade alterada com sucesso! Nº ${response.data.quantidade}`);
-    })
-      .catch(() => {
-        console.log('Erro ao enviar pedido'+quantidade);
-      })
-}
 
-=======
 const saveProducts = () => {
   const newProduct = {
     id: product.id,
@@ -69,10 +47,6 @@ const saveProducts = () => {
       console.log("Erro ao atualizar o produto");
     })
 }
-
-
-
->>>>>>> d24506b8e8299cc4c423427552aa5c4f79ef681a
   return (
     <div className={`order-card-container ${isSelected ? 'selected' : ''} `} 
     onClick={()=>onSelectProduct(product)}>
@@ -83,7 +57,7 @@ const saveProducts = () => {
 
         <div className="order-card-description">
            <h3>Quantidade</h3>
-              <button onClick={alterQuantidade} className="card-btn-order">+</button>
+              <button onClick={addQuantidade} className="card-btn-order">+</button>
                 <h3>{product.quantidade}</h3>
               <button onClick={removeQuantidade} className="card-btn-order">-</button>    
         </div>

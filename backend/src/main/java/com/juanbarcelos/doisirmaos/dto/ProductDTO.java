@@ -2,7 +2,6 @@ package com.juanbarcelos.doisirmaos.dto;
 
 import java.io.Serializable;
 
-import com.juanbarcelos.doisirmaos.entities.Order;
 import com.juanbarcelos.doisirmaos.entities.Product;
 
 public class ProductDTO implements Serializable {
@@ -15,7 +14,6 @@ public class ProductDTO implements Serializable {
 	private String imageUri;
 	private int quantidade;
 
-	private Order order;
 
 	public ProductDTO() {
 	}
