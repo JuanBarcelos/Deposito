@@ -16,6 +16,11 @@ export function saveOrder(payload: OrderPayload){
   return axios.post(`${API_URL}/orders`,payload);
 }
 
+<<<<<<< HEAD
 export function alterarQuantidade(id: number, product: Product){
   return axios.put(`${API_URL}/products/${id}`,product);
+=======
+export function saveProduct(productID: number,product: Product){
+  return axios.put(`${API_URL}/products/${productID}`, product)
+>>>>>>> d24506b8e8299cc4c423427552aa5c4f79ef681a
 }
