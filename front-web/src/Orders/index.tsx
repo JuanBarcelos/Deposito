@@ -17,7 +17,7 @@ function Orders(){
   const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
   const [orderLocation, setOrderLocation] = useState<OrderLocationData>()
   const totalPrice = selectedProducts.reduce((sum, item)=>{
-      return sum + item.price * item.quantidade;
+      return sum + (item.price * item.quantidade);
   },0);
 
 const totalFrete = totalPrice + 5;
